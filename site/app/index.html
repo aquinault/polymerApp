@@ -1,4 +1,4 @@
-grunt server<!doctype html>
+<!doctype html>
 <html>
 
 <head>
@@ -10,26 +10,149 @@ grunt server<!doctype html>
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild-->
 
   <script src="bower_components/platform/platform.js"></script>
   <!-- build:vulcanized elements/elements.vulcanized.html -->
-  <link rel="import" href="elements/elements.html">
+  <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+
+  <!--link rel="import" href="bower_components/paper-dialog/paper-dialog-transition.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-dialog.html"-->
+  <link rel="import" href="elements/my-dialog1.html">
   <!-- endbuild-->
+  
+  
+  <style shim-shadowdom>
+  
+    body {
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+      margin: 0;
+      padding: 24px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-touch-callout: none;
+    }
+    
+    paper-checkbox {
+      padding: 20px 20px 20px 0;
+    }
+    
+    section {
+      width: 300px;
+    }
+    
+    paper-checkbox.blue::shadow #ink[checked] {
+      color: #4285f4;
+    }
+    
+    paper-checkbox.blue::shadow #checkbox.checked {
+      border-color: #4285f4;
+    }
+    
+  </style>  
+  
+  
 </head>
 
 <body unresolved>
 
-  <div class="hero-unit">
-    <yo-greeting></yo-greeting>
-    <p>You now have</p>
-    <yo-list></yo-list>
-  </div>
+  <core-toolbar style="background: #4285f4;">
+    <paper-icon-button icon="menu"></paper-icon-button>
+    <span flex>Title</span>
+    <paper-icon-button icon="refresh"></paper-icon-button>
+    <paper-icon-button icon="more-vert"></paper-icon-button>
+  </core-toolbar>
+  
+  
+  
+  <my-dialog1></my-dialog1>
+  <br>
+  
 
-  <!-- build:js scripts/app.js -->
-  <script src="scripts/app.js"></script>
-  <!-- endbuild-->
+
+  <!--paper-button label="Transition A" onclick="toggleDialog1()"></paper-button-->
+  <paper-button label="Transition A" onclick="toggleDialog('id1')"></paper-button>
+  <paper-button label="Transition B" onclick="toggleDialog('id2')"></paper-button>
+  <script>
+    function toggleDialog(myId) {
+      
+      //document.querySelector('my-dialog1').owner = 'June';
+      document.querySelector('my-dialog1').toggle(myId);
+      
+      //var dialog = this.$.dialog1.querySelector('paper-dialog[transition=' + transition + ']');
+      //dialog.toggle();
+    }
+    
+   
+  </script>
+
+  
+  
+  
+  <div horizontal layout>
+    <paper-checkbox></paper-checkbox>
+    <div vertical layout>
+      <h4>Notifications</h4>
+      <div>Notify me about updates to apps or games that I've downloaded</div>
+    </div>
+  </div>
+  
+  <br>
+  
+  <div horizontal layout>
+    <paper-checkbox checked></paper-checkbox>
+    <div vertical layout>
+      <h4>Auto-updates</h4>
+      <div>Auto-update apps over wifi only</div>
+    </div>
+  </div>
+  
+  <br>
+  
+  <div horizontal layout>
+    <paper-checkbox></paper-checkbox>
+    <div vertical layout>
+      <h4>Clear search history</h4>
+      <div>Remove all the searches you have ever performed</div>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <br>
+  
+  <section>
+  
+    <h3>Sound</h3>
+  
+    <div center horizontal layout>
+      <div flex>Touch sounds</div>
+      <paper-checkbox class="blue" checked></paper-checkbox>
+    </div>
+    
+    <div center horizontal layout>
+      <div flex>Screen lock sound</div>
+      <paper-checkbox class="blue"></paper-checkbox>
+    </div>
+    
+    <div center horizontal layout>
+      <div flex>Vibrate on touch</div>
+      <paper-checkbox class="blue"></paper-checkbox>
+    </div>
+  
+  </section>
+    
+  
 </body>
 
 </html>

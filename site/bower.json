@@ -2,11 +2,11 @@
   "name": "site",
   "version": "0.0.0",
   "dependencies": {
-    "core-elements": "Polymer/core-elements#^0.4.0",
-    "paper-elements": "Polymer/paper-elements#^0.4.0",
-    "polymer": "Polymer/polymer#^0.4.0"
+    "core-elements": "Polymer/core-elements",
+    "paper-elements": "Polymer/paper-elements",
+    "polymer": "Polymer/polymer"
   },
   "devDependencies": {
-    "polymer-test-tools": "Polymer/polymer-test-tools#^0.4.0"
+    "polymer-test-tools": "Polymer/polymer-test-tools"
   }
 }
