@@ -3,50 +3,80 @@
 <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
 
 <polymer-element name="my-dialog1">
-  <template>
+    <template>
+        <style>
+        
+        paper-dialog.paper-dialog-transition {
+          outline: none;
+          opacity: 0;
+          transition: transform 5.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          -webkit-transition: -webkit-transform 5.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        paper-dialog.paper-dialog-transition.core-opened {
+          opacity: 1;
+          transform: none;
+          -webkit-transform: none;
+        }
+        
+        paper-dialog.paper-dialog-transition-bottom {
+          transform: scale(0.9) translateY(200%);
+          -webkit-transform: scale(0.9) translateY(200%);
+        }
+        
+        paper-dialog.paper-dialog-transition-center.core-opened {
+          animation: paper-dialog-transition-center-keyframes 5.2s cubic-bezier(0.4, 0, 0.2, 1);
+          -webkit-animation: paper-dialog-transition-center-keyframes 5.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        </style>
 
-    This is <b>{{owner}}</b>'s name-tag element.
 
-   <paper-dialog heading="Dialog" transition="paper-dialog-transition-center" id='id1'>
-    <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
-    <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
 
-    <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+        This is <b>{{owner}}</b>'s name-tag element.
 
-    <paper-button label="More Info..." dismissive></paper-button>
-    <paper-button label="Decline" affirmative></paper-button>
-    <paper-button label="Accept" affirmative autofocus></paper-button>
+        <paper-dialog heading="Dialog" transition="paper-dialog-transition-center" id='id1'>
+            <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
-  </paper-dialog>
+            <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
 
-  <paper-dialog heading="Dialog" transition="paper-dialog-transition-bottom" id='id2'>
-    <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+            <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
-    <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
+            <paper-button label="More Info..." dismissive></paper-button>
+            <paper-button label="Decline" affirmative></paper-button>
+            <paper-button label="Accept" affirmative autofocus></paper-button>
 
-    <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+        </paper-dialog>
 
-    <paper-button label="More Info..." dismissive></paper-button>
-    <paper-button label="Decline" affirmative></paper-button>
-    <paper-button label="Accept" affirmative autofocus></paper-button>
+        <paper-dialog heading="Dialog" transition="paper-dialog-transition-bottom" id='id2'>
+            <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
-  </paper-dialog>
+            <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
 
-  </template>
-  
-  <script>
-    Polymer('my-dialog1', {
-      // initialize the element's model
-      ready: function() {
-        this.owner = 'Rafael';
-        this.toggle = function(id) {
-            //var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
-            var dialog = this.$[id];
-            dialog.toggle();
-        };
-      }
-    });
-  </script>
-  
+            <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+
+            <paper-button label="More Info..." dismissive></paper-button>
+            <paper-button label="Decline" affirmative></paper-button>
+            <paper-button label="Accept" affirmative autofocus></paper-button>
+
+        </paper-dialog>
+
+    </template>
+
+
+
+    <script>
+        Polymer('my-dialog1', {
+            // initialize the element's model
+            ready: function() {
+                this.owner = 'Rafael';
+                this.toggle = function(id) {
+                    //var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
+                    var dialog = this.$[id];
+                    dialog.toggle();
+                };
+            }
+        });
+    </script>
+
 </polymer-element>
