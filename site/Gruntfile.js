@@ -195,8 +195,8 @@ module.exports = function (grunt) {
           strip: true
         },
         files: {
-          '<%= yeoman.dist %>/elements/elements.vulcanized.html': [
-            '<%= yeoman.dist %>/elements/elements.html'
+          '<%= yeoman.dist %>/index.vulcanized.html': [
+            '<%= yeoman.dist %>/index.html'
           ]
         }
       }
@@ -308,7 +308,7 @@ module.exports = function (grunt) {
     'imagemin',
     'concat',
     'autoprefixer',
-    'uglify',
+    //'uglify',
     'vulcanize',
     'usemin',
     'minifyHtml'
